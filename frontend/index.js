@@ -1,19 +1,6 @@
-const calTime = (timeStamp) => {
-  //한국시간 UTC+9
-  const curTime = new Date().getTime() - 9 * 60 * 60 * 1000;
-  const time = new Date(curTime - timeStamp);
-  const hour = time.getHours();
-  const minute = time.getMinutes();
-  const second = time.getSeconds();
-
-  if (hour > 0) return `${hour}시간 전`;
-  else if (minute > 0) return `${minute}분 전`;
-  else if (second >= 0) return `${second}초 전`;
-  else "방금 전";
-};
-
 const renderData = (data) => {
   const main = document.querySelector("main");
+
   data.reverse().forEach(async (obj) => {
     const div = document.createElement("div");
     div.className = "item-list";
@@ -59,6 +46,7 @@ const fetchList = async () => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
   if (res.status === 401) {
     alert("로그인이 필요합니다!");
     window.location.pathname = "/login.html";

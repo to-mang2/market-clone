@@ -127,4 +127,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* Previous Versions */
+
+button {
+  outline: none;
+  border: none;
+  background: none;
+}
